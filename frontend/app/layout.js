@@ -13,9 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-background min-h-screen">
-        {children}
+        <div className="flex w-full gap-40">
+          <DesktopNavigation />
 
-        <Navbar />
+          <div className="flex-1">{children}</div>
+        </div>
       </body>
     </html>
   );
