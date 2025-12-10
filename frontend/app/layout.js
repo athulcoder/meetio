@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-backgrounds">
+      <body className="bg-background min-h-screen">
         {children}
         <MobileNavigation />
       </body>
