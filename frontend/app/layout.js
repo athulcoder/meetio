@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
+import "./globals.css";
 import MobileNavigation from "@/components/MobileNavigation";
 
 export const metadata = {
