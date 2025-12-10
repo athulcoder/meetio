@@ -2,6 +2,7 @@
 import { NAV_ITEMS } from "@/constants/NavItems";
 import React from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 const MobileNavigation = () => {
   let pathname = usePathname();
   console.log(pathname);
@@ -15,9 +16,9 @@ const MobileNavigation = () => {
           const IconON = iconOn;
           return (
             <li key={label} className="">
-              <a href={url} className="">
+              <Link href={url} className="">
                 {isActive ? <IconON size={23} /> : <IconOFF size={23} />}
-              </a>
+              </Link>
             </li>
           );
         })}
