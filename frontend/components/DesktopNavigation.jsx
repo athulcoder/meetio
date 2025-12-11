@@ -26,7 +26,7 @@ const DesktopNavigation = ({ open, setOpen }) => {
         } `}
       >
         <h1
-          className={`font-sans text-2xl font-light  ${
+          className={`font-kumbh text-2xl font-light  ${
             !open ? "hidden" : ""
           }   `}
         >
