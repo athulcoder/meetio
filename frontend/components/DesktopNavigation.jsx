@@ -1,18 +1,43 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/constants/NavItems";
 
 import { FiMenu } from "react-icons/fi";
-const DesktopNavigation = () => {
+const DesktopNavigation = ({ open, setOpen }) => {
   const pathname = usePathname();
-  return (
-    <nav className=" flex-col left-0 top-0 bottom-0  min-w-[230px] fixed max-w-[30%] h-full bg-bluish-white flex items-center justify-center shadow-black shadow-2xl overflow-y-hidden max-md:hidden">
-      <div className="bg-primary-blue text-bluish-white flex justify-between w-[90%] p-2 items-center rounded-2xl my-3">
-        <h1 className="font-sans text-2xl font-light    ">MEETIO</h1>
 
-        <FiMenu size={23} className="font-bold " />
+  useEffect(() => {}, [pathname, open]);
+  const handleDesktopCollab = () => {
+    console.log("Hi");
+    setOpen((prev) => !prev);
+  };
+
+  return (
+    <nav
+      className={` flex-col left-0 top-0 bottom-0 ${
+        open ? "min-w-[230px]" : "min-w-[90px]"
+      } fixed transition-all duration-300 ease-in-out overflow-hidden h-full bg-bluish-white flex items-center justify-center shadow-black shadow-2xl overflow-y-hidden max-md:hidden`}
+    >
+      <div
+        className={`bg-primary-blue text-bluish-white flex  w-[90%] p-2 items-center rounded-2xl my-3 ${
+          !open ? " justify-center items-center " : "justify-between"
+        } `}
+      >
+        <h1
+          className={`font-sans text-2xl font-light  ${
+            !open ? "hidden" : ""
+          }   `}
+        >
+          MEETIO
+        </h1>
+
+        <FiMenu
+          size={23}
+          className="font-bold cursor-pointer"
+          onClick={handleDesktopCollab}
+        />
       </div>
       <ul className="flex w-full h-full  items-center justify-start gap-10 flex-col pt-3 ">
         {NAV_ITEMS.map(({ iconOff, iconOn, url, label }) => {
@@ -23,10 +48,14 @@ const DesktopNavigation = () => {
           return (
             <li
               key={label}
-              className="flex items-center gap-2 justify-start bg-[#eaeaea] w-[90%] box-border px-2 py-3 rounded-2xl"
+              className={`flex items-center gap-2  bg-[#eaeaea] w-[90%] box-border px-2 py-3 rounded-2xl ${
+                !open ? "justify-center " : "justify-start"
+              }`}
             >
               <Link href={url} className="flex flex-row-reverse gap-3">
-                <p className="text-sm font-semibold ">{label}</p>
+                <p className={`text-sm font-semibold ${!open ? "hidden" : ""}`}>
+                  {label}
+                </p>
 
                 {isActive ? <IconON size={23} /> : <IconOFF size={23} />}
               </Link>

@@ -6,15 +6,21 @@ import DesktopNavigation from "./DesktopNavigation";
 import MobileNavigation from "./MobileNavigation";
 
 const ClientComponent = ({ children }) => {
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState(true);
   return (
-    <div>
+    <>
       <DesktopNavigation open={open} setOpen={setOpen} />
 
       <MobileNavigation />
 
-      <div className="min-md:ml-[230px] h-screen  ">{children}</div>
-    </div>
+      <div
+        className={`h-screen ${
+          open ? "min-md:ml-[230px]" : "min-md:ml-[90px]"
+        } fixed transition-all duration-100 ease-in-out overflow-hidden p-3  `}
+      >
+        {children}
+      </div>
+    </>
   );
 };
 
