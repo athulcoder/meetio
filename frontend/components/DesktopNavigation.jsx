@@ -16,9 +16,9 @@ const DesktopNavigation = ({ open, setOpen }) => {
 
   return (
     <nav
-      className={` flex-col left-0 top-0 bottom-0 ${
+      className={` flex-col left-0 ${
         open ? "min-w-[230px]" : "min-w-[90px]"
-      } fixed transition-all duration-300 ease-in-out overflow-hidden h-full bg-bluish-white flex items-center justify-center shadow-black shadow-2xl overflow-y-hidden max-md:hidden`}
+      } fixed transition-all duration-300 ease-in-out  h-full bg-bluish-white flex items-center justify-center shadow-black shadow-2xl overflow-y-hidden max-md:hidden z-100 `}
     >
       <div
         className={`bg-primary-blue text-bluish-white flex  w-[90%] p-2 items-center rounded-2xl my-3 ${

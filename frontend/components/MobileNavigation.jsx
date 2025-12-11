@@ -17,7 +17,7 @@ const MobileNavigation = () => {
           return (
             <li key={label} className="">
               <Link href={url} className="">
-                {isActive ? <IconON size={23} /> : <IconOFF size={23} />}
+                {isActive ? <IconON size={28} /> : <IconOFF size={24} />}
               </Link>
             </li>
           );
