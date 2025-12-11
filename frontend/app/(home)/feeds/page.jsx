@@ -6,7 +6,7 @@ import { IoNotificationsOutline } from "react-icons/io5";
 
 const FeedPage = () => {
   return (
-    <section className="bg-background h-screen w-full  overflow-y-auto pb-30 ">
+    <section className="bg-background h-screen w-full  overflow-y-auto pb-30  no-scrollbar">
       {/* TITLE SECTION */}
 
       <div className="min-md:hidden w-full h-[30px] px-3 flex justify-between items-center">
@@ -17,10 +17,12 @@ const FeedPage = () => {
         <IoNotificationsOutline size={26} className=" cursor-pointer" />
       </div>
       {/* Story section */}
+
       <StorySection />
+
       <hr className="border-[0.2px] border-[#c7c7c7]" />
 
-      <div className="w-full flex flex-col items-center min-md:ml-10 min-md:items-start ">
+      <div className="flex flex-col gap-5 justify-center px-10">
         <PostCard />
         <PostCard />
         <PostCard />

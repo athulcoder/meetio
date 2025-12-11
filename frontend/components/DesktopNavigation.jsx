@@ -15,10 +15,10 @@ const DesktopNavigation = ({ open, setOpen }) => {
   };
 
   return (
-    <nav
-      className={` flex-col left-0 ${
+    <aside
+      className={` flex-col  ${
         open ? "min-w-[230px]" : "min-w-[90px]"
-      } fixed transition-all duration-300 ease-in-out  h-full bg-bluish-white flex items-center justify-center shadow-black shadow-2xl overflow-y-hidden max-md:hidden z-100 `}
+      }  transition-all duration-300 ease-in-out  h-full bg-bluish-white flex items-center justify-center shadow-black shadow-xl overflow-y-hidden max-md:hidden z-10 fixed left-0`}
     >
       <div
         className={`bg-primary-blue text-bluish-white flex  w-[90%] p-2 items-center rounded-2xl my-3 ${
@@ -69,7 +69,7 @@ const DesktopNavigation = ({ open, setOpen }) => {
           );
         })}
       </ul>
-    </nav>
+    </aside>
   );
 };
 

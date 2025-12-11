@@ -14,9 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="">
       <body className="bg-background min-h-screen ">
-        <div className="flex w-full  min-h-screen ">
-          <ClientComponent>{children}</ClientComponent>
-        </div>
+        <ClientComponent>{children}</ClientComponent>
       </body>
     </html>
   );
