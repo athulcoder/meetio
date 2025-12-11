@@ -9,8 +9,8 @@ const FeedPage = () => {
     <section className="bg-background h-screen w-full  overflow-y-auto pb-30  no-scrollbar">
       {/* TITLE SECTION */}
 
-      <div className="min-md:hidden w-full h-[30px] px-3 flex justify-between items-center">
-        <h1 className="flex items-center justify-start font-kumbh text-primary-blue text-xl ">
+      <div className="min-md:hidden w-full h-[30px] px-3 py-4 flex justify-between items-center">
+        <h1 className="flex items-center justify-start font-kumbh text-primary-blue text-4xl ">
           MEETIO
         </h1>
 
@@ -20,9 +20,9 @@ const FeedPage = () => {
 
       <StorySection />
 
-      <hr className="border-[0.2px] border-[#c7c7c7]" />
+      <hr className="border-[1px] border-[#dedddd]" />
 
-      <div className="flex flex-col gap-5 justify-center px-10">
+      <div className="flex flex-col gap-5 justify-center min-md:px-10 ">
         <PostCard />
         <PostCard />
         <PostCard />
