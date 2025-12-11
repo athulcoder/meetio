@@ -8,6 +8,7 @@
   --prim-text: #000000;
   --sec-text: #59595a;
   --bluish-white: #f6f7fa;
+  --secondary-w: #eef3f6;
 
 }
 
@@ -20,6 +21,7 @@
   --color-prim-text: var(--prim-text);
   --color-sec-text: var(--sec-text);
   --color-bluish-white: var(--bluish-white);
+  --color-secondary-w: var(--secondary-w);
 
 
   --font-sans: var(--font-geist-sans);
