@@ -50,7 +50,7 @@ const BioPart = () => {
       </p>
 
       <div className="flex w-full gap-5 my-6">
-        <button className="flex-2 bg-primary-blue text-lg max-w-[200px] text-white rounded-xl cursor-pointer">
+        <button className="flex-2 bg-primary-blue text-lg max-w-[200px] text-white rounded-xl px-3 py-1 h-[34px] cursor-pointer">
           Follow
         </button>
         <button className="flex-2 bg-secondary-w max-w-[200px]  rounded-xl px-3 py-1 h-[34px] cursor-pointer">

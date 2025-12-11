@@ -4,7 +4,7 @@ import React from "react";
 
 const ProfilePage = () => {
   return (
-    <section className="bg-background h-screen w-full  overflow-y-auto pb-30 ">
+    <section className="bg-background h-screen w-full  overflow-y-auto pb-30  p-3">
       {/* PROF */}
       <BioPart />
     </section>
