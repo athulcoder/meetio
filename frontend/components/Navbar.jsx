@@ -5,10 +5,10 @@ import MobileNavigation from "./MobileNavigation";
 const Navbar = () => {
   return (
     <div>
-      <div className="max-md:hidden">
+      <div className="">
         <DesktopNavigation />
       </div>
-      <div className="min-md:hidden">
+      <div className="">
         <MobileNavigation />
       </div>
     </div>

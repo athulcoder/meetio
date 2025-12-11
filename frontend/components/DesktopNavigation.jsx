@@ -8,7 +8,7 @@ import { FiMenu } from "react-icons/fi";
 const DesktopNavigation = () => {
   const pathname = usePathname();
   return (
-    <nav className="fixed flex-col left-0  min-w-[230px] max-w-[30%] h-full bg-bluish-white flex items-center justify-center shadow-black shadow-2xl overflow-y-hidden ">
+    <nav className=" flex-col left-0 top-0 bottom-0  min-w-[230px] fixed max-w-[30%] h-full bg-bluish-white flex items-center justify-center shadow-black shadow-2xl overflow-y-hidden max-md:hidden">
       <div className="bg-primary-blue text-bluish-white flex justify-between w-[90%] p-2 items-center rounded-2xl my-3">
         <h1 className="font-sans text-2xl font-light    ">MEETIO</h1>
 
