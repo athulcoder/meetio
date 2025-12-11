@@ -14,9 +14,9 @@ const ClientComponent = ({ children }) => {
       <MobileNavigation />
 
       <div
-        className={`h-screen ${
-          open ? "min-md:ml-[230px]" : "min-md:ml-[90px]"
-        } fixed transition-all duration-100 ease-in-out overflow-hidden p-3  `}
+        className={`h-screen w-full ${
+          open ? "min-md:ml-[227px]" : "min-md:ml-[87px]"
+        } fixed transition-all duration-100 ease-in-out overflow-hidden p-1  `}
       >
         {children}
       </div>

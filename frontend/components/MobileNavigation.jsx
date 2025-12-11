@@ -7,7 +7,7 @@ const MobileNavigation = () => {
   let pathname = usePathname();
   console.log(pathname);
   return (
-    <nav className="fixed bottom-0 w-full h-[50px] bg-bluish-white flex items-center justify-center shadow-black shadow-2xl min-md:hidden">
+    <nav className="fixed z-100 bottom-0 w-full h-[50px] bg-bluish-white flex items-center justify-center shadow-black shadow-2xl min-md:hidden">
       <ul className="flex w-full h-full  items-center justify-around">
         {NAV_ITEMS.map(({ iconOff, iconOn, url, label }) => {
           let isActive;

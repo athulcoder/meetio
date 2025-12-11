@@ -48,8 +48,10 @@ const DesktopNavigation = ({ open, setOpen }) => {
           return (
             <li
               key={label}
-              className={`flex items-center gap-2  bg-[#eaeaea] w-[90%] box-border px-2 py-3 rounded-2xl ${
-                !open ? "justify-center " : "justify-start"
+              className={`flex items-center gap-2  bg-[#eaeaea] w-[90%] box-border  rounded-2xl ${
+                !open
+                  ? "justify-center h-[50px] w-[50px] "
+                  : "justify-start px-2 py-3"
               }`}
             >
               <Link href={url} className="flex flex-row-reverse gap-3">
@@ -57,7 +59,11 @@ const DesktopNavigation = ({ open, setOpen }) => {
                   {label}
                 </p>
 
-                {isActive ? <IconON size={23} /> : <IconOFF size={23} />}
+                {isActive ? (
+                  <IconON size={open ? 23 : 26} />
+                ) : (
+                  <IconOFF size={open ? 23 : 26} />
+                )}
               </Link>
             </li>
           );
