@@ -10,7 +10,7 @@ const FeedPage = () => {
       <StorySection />
       <hr className="border-[0.2px] border-[#c7c7c7]" />
 
-      <div className="flex items-center ml-[-300px]   flex-col w-full">
+      <div className="flex items-center min-md:items-start min-md:ml-10    flex-col w-full">
         <PostCard />
         <PostCard />
         <PostCard />
