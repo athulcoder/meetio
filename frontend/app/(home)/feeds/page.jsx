@@ -9,7 +9,7 @@ const FeedPage = () => {
     <section className="bg-background h-screen w-full  overflow-y-auto pb-30  no-scrollbar">
       {/* TITLE SECTION */}
 
-      <div className="min-md:hidden w-full h-[30px] px-3 py-4 flex justify-between items-center">
+      <div className="min-md:hidden w-full h-[30px] px-3 py-4 mt-2 flex justify-between items-center">
         <h1 className="flex items-center justify-start font-kumbh text-primary-blue text-4xl ">
           MEETIO
         </h1>
