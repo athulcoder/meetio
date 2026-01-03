@@ -1,5 +1,6 @@
 import { prisma } from "../config/db.js";
 import bcrypt from "bcryptjs"
+import { generateToken } from "../utils/generateJWT.js";
 export const sendFeeds = async(req, res) => {
 
     res.json([{
@@ -69,4 +70,54 @@ export const registerUser = async(req, res) => {
     })
 
 
+}
+
+
+
+
+//login
+
+export const loginUser = async(req, res) => {
+    const { email, password } = await req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ status: false, message: "All feilds are required" })
+    }
+
+    //check user
+    const userExist = await prisma.user.findUnique({
+        where: { email: email },
+        select: {
+            id: true,
+            email: true,
+            username: true,
+            password: true,
+            fullName: true,
+            isPrivate: true,
+            isVerified: true,
+            profileUrl: true,
+            followersCount: true,
+            followingCount: true,
+        }
+    });
+
+    if (!userExist) {
+        return res.status(401).json({ satus: false, message: "Invalid email or password" })
+    }
+
+
+    //check passoword
+
+    const isPassowordTrue = await bcrypt.compare(password, userExist.password);
+
+    if (!isPassowordTrue) {
+        return res.status(401).json({ satus: false, message: "Invalid email or password" })
+
+    }
+
+
+    //create a jwt token 
+
+    const token = generateToken(res, userExist.id);
+    res.status(200).json({ status: true, message: "login successfull", user: { password, ...userExist }, token: token })
 }

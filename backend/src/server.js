@@ -1,6 +1,7 @@
 import express from "express"
 import "dotenv/config"
 import userRoute from "./routes/userRoute.js";
+import feedRoute from "./routes/feedRoute.js";
 import { disconnectDB } from "./config/db.js";
 const app = express();
 
@@ -9,36 +10,37 @@ const PORT = process.env.PORT
 
 //middleware
 app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 
-app.use("/user",userRoute)
+app.use("/user", userRoute)
+app.use("/feed", feedRoute)
 
-const server = app.listen(PORT, ()=>{
-    console.log("Server is listening at PORT ",PORT)
+const server = app.listen(PORT, () => {
+    console.log("Server is listening at PORT ", PORT)
 })
 
 
 
-process.on("unhandledRejection",(err)=>{
-    console.log("Unhandled Rejection :",err.message);
-    server.close(async()=>{
+process.on("unhandledRejection", (err) => {
+    console.log("Unhandled Rejection :", err.message);
+    server.close(async() => {
         await disconnectDB();
         process.exit(1)
     })
 })
 
 
-process.on("uncaughtException",async(err)=>{
-    console.log("uncaught Exception :",err.message);
+process.on("uncaughtException", async(err) => {
+    console.log("uncaught Exception :", err.message);
     await disconnectDB();
     process.exit(1);
 
 })
 
-process.on("SIGTERM",async()=>{
+process.on("SIGTERM", async() => {
     console.log("SIGTERM recieved , shutting down gracefully");
-    server.close(async()=>{
-      await  disconnectDB();
-      process.exit(0);
+    server.close(async() => {
+        await disconnectDB();
+        process.exit(0);
     })
 })
