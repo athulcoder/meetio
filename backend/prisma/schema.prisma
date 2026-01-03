@@ -5,12 +5,12 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 
@@ -22,8 +22,9 @@ email String @unique
 username String @unique
 fullName String
 password String
-bio String @db.VarChar(150)
-profileUrl String
+dob DateTime @db.Date 
+bio String? @db.VarChar(150)
+profileUrl String?
 
 followersCount  Int    @default(0)
 followingCount  Int    @default(0)
