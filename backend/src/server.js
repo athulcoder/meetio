@@ -1,7 +1,8 @@
 import express from "express"
 import "dotenv/config"
-import userRoute from "./routes/userRoute.js";
+import authRoute from "./routes/authRoute.js";
 import feedRoute from "./routes/feedRoute.js";
+import userRoute from "./routes/userRoute.js";
 import { disconnectDB } from "./config/db.js";
 const app = express();
 
@@ -12,8 +13,9 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use("/user", userRoute)
+app.use("/auth", authRoute)
 app.use("/feed", feedRoute)
+app.use("/", userRoute)
 
 const server = app.listen(PORT, () => {
     console.log("Server is listening at PORT ", PORT)
