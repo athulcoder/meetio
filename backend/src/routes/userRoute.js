@@ -1,11 +1,12 @@
 
 import express from "express"
-import { sendFeeds } from "../controllers/userController.js";
+import { registerUser, sendFeeds } from "../controllers/userController.js";
 
 
  const router = express.Router();
 
 
+ //creation of user
+ router.post("/register", registerUser);
 
-router.get('/feed', sendFeeds);
-export default router
+export default router;

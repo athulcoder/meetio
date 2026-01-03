@@ -12,3 +12,114 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+
+
+model User {
+id String @id @default(uuid())
+
+email String @unique
+username String @unique
+fullName String
+password String
+bio String @db.VarChar(150)
+profileUrl String
+
+followersCount  Int    @default(0)
+followingCount  Int    @default(0)
+
+//posts reference
+posts Post[]
+
+//follwers and following
+followers UserFollow[] @relation("followers")
+following UserFollow[] @relation("following")
+
+
+
+//liked & commented
+liked PostLike[]
+commented PostComment[]
+createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+}
+
+
+model UserFollow {
+  followerId String 
+  followingId String
+  createdAt DateTime @default(now())
+
+
+
+  follower User @relation("following",fields: [followerId],references: [id],onDelete: Cascade)
+  following User @relation("followers",fields: [followingId],references: [id],onDelete: Cascade)
+
+  @@id([followerId,followingId])
+  @@index([followerId])
+  @@index([followingId])
+}
+model Post {
+  id String @id @default(uuid())
+  
+  owner_id String
+  caption String?
+
+  likeCount Int @default(0)
+  commentCount Int @default(0)
+
+
+  likes PostLike[]
+  comments PostComment[]
+  author User @relation(fields: [owner_id],references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  @@index([owner_id, createdAt])
+
+}
+
+
+model PostMedia {
+  id String @id @default(uuid())
+  postId String 
+  mediaUrl String 
+  mediaType String
+  position Int
+
+  createdAt DateTime @default(now())
+
+  @@index([postId])
+}
+
+model PostLike {
+  id String @id @default(uuid())
+  postId String 
+  userId String
+
+  post Post @relation(fields: [postId],references: [id])
+  user User @relation(fields: [userId],references: [id])
+  createdAt DateTime @default(now())
+
+  @@index([postId])
+  @@index([userId])
+  
+}
+
+
+model PostComment {
+  id String @id @default(uuid())
+  postId String 
+  userId String
+  content String
+
+  parentId String?
+  post Post @relation(fields: [postId],references: [id])
+  user User @relation(fields: [userId],references: [id])
+  createdAt DateTime @default(now())
+  
+  parent PostComment? @relation("CommentReplies",fields: [parentId],references: [id])
+  replies   PostComment[] @relation("CommentReplies")
+
+  @@index([postId])
+  @@index([parentId])
+}
+

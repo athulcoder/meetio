@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended:true}))
 app.use("/user",userRoute)
 
 
+
 app.listen(PORT, ()=>{
     console.log("Server is listening at PORT ",PORT)
 })
