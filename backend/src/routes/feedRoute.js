@@ -10,3 +10,4 @@ router.get('/', authMiddlware, (req, res) => {
 })
 
 export default router
+
