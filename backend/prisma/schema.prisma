@@ -25,6 +25,8 @@ password String
 dob DateTime @db.Date 
 bio String? @db.VarChar(150)
 profileUrl String?
+isPrivate Boolean @default(false)
+isVerified Boolean @default(false)
 
 followersCount  Int    @default(0)
 followingCount  Int    @default(0)

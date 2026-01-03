@@ -8,6 +8,8 @@ CREATE TABLE "User" (
     "dob" DATE NOT NULL,
     "bio" VARCHAR(150),
     "profileUrl" TEXT,
+    "isPrivate" BOOLEAN NOT NULL DEFAULT false,
+    "isVerified" BOOLEAN NOT NULL DEFAULT false,
     "followersCount" INTEGER NOT NULL DEFAULT 0,
     "followingCount" INTEGER NOT NULL DEFAULT 0,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
